@@ -768,6 +768,69 @@ fun LookAndFeelActivity(
                         )
                     },
                 )
+                SettingsDivider()
+
+SettingsCheckbox(
+    state = vibrateOnTapState,
+    icon = {
+        Icon(
+            imageVector = Icons.Outlined.Vibration,
+            contentDescription = null,
+        )
+    },
+    title = {
+        Text(stringResource(R.string.vibrate_on_tap))
+    },
+    subtitle = {
+        Text(stringResource(R.string.vibrate_warning))
+    },
+    onCheckedChange = {
+        updateLookAndFeel(
+            appSettingsViewModel,
+            keySizeState,
+            nonSquareKeysState,
+            keyWidthState,
+            pushupSizeState,
+            animationSpeedState,
+            animationHelperSpeedState,
+            positionState,
+            keyBordersState,
+            vibrateOnTapState,
+            soundOnTapState,
+            hideLettersState,
+            hideSymbolsState,
+            themeState,
+            themeColorState,
+            backdropEnabledState,
+            keyPaddingState,
+            keyBorderWidthState,
+            keyRadiusState,
+        )
+    },
+)
+
+// Add a new checkbox for "corner vibration"
+SettingsCheckbox(
+    state = cornerVibrationState,
+    icon = {
+        // Customize the icon for corner vibration if needed
+        Icon(
+            imageVector = Icons.Outlined.Warning,
+            contentDescription = null,
+        )
+    },
+    title = {
+        Text(stringResource(R.string.corner_vibration))
+    },
+    subtitle = {
+        // Customize the subtitle for corner vibration if needed
+        Text(stringResource(R.string.corner_vibration_subtitle))
+    },
+    onCheckedChange = {
+        // Implement the logic to handle corner vibration
+        updateCornerVibration(appSettingsViewModel, cornerVibrationState)
+    },
+)
                 SettingsCheckbox(
                     state = soundOnTapState,
                     icon = {
